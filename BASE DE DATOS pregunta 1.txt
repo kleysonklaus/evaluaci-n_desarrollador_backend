@@ -1,0 +1,13 @@
+¿Por qué en bases de datos, tratar con null es un caso especial?
+
+RESPUESTA:
+null (nulo), sirve para indicar que no existe ningun valor, puede ser usado para indicar que existe una informacion desconocida.
+
+
+
+Por ejemplo,
+¿Por qué en `SELECT * FROM "Table" WHERE "field" = null;` no devuelve ningún registro
+que tenga valor `NULL` en el campo `field`?
+
+RESPUESTA:
+porque todos los campos de "field" existe un valor (no nulo)
