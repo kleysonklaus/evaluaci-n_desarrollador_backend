@@ -12,6 +12,12 @@ $message = "";
         $phone = $_POST['phonenumber'];
         $password2 = $_POST['password2'];
 
+        $tipo_documento = $_POST['tipo_documento'];
+        $num_documento = $_POST['num_documento'];
+
+        echo $tipo_documento;
+        echo $num_documento;
+
 
         $ch = curl_init();
         echo $ch;
@@ -38,6 +44,7 @@ $message = "";
                     'country' => $country,
                     'phonenumber' => $phone,
                     'password2' => $password2,
+                    'customfields' => base64_encode( serialize( array( "1" => $tipo_documento, "2" => $num_documento) ) ),
                     // 'customfields' => $customfield,
                     // 'clientip' => '1.2.3.4',
                     // 'responsetype' => 'json',
@@ -71,61 +78,78 @@ $message = "";
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="nombres" class="form-label">Nombres</label>
-                    <input type="text" class="form-control" name="first_name" value="" placeholder="Nombres">
+                    <input type="text" class="form-control" name="first_name" value="" placeholder="Nombres" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="apellidos" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" name="last_name" placeholder="Apellidos">
+                    <input type="text" class="form-control" name="last_name" placeholder="Apellidos" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="email" class="form-label">email</label>
-                    <input type="email" class="form-control" name="email"  placeholder="E-mail">
+                    <input type="email" class="form-control" name="email"  placeholder="E-mail" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="direccion_1" class="form-label">Direccion 1</label>
-                    <input type="text" class="form-control" name="address1" placeholder="Dirección 1">
+                    <input type="text" class="form-control" name="address1" placeholder="Dirección 1" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="ciudad" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" name="city" value="Arequipa" placeholder="Ciudad">
+                    <input type="text" class="form-control" name="city" value="Arequipa" placeholder="Ciudad" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="estado" class="form-label">Estado</label>
-                    <input type="text" class="form-control" name="estado" value="Arequipa" placeholder="Provincia">
+                    <input type="text" class="form-control" name="estado" value="Arequipa" placeholder="Provincia" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="postcode" class="form-label">Código Postal</label>
-                    <input type="text" class="form-control" name="postcode" value="20000" placeholder="Código Postal">
+                    <input type="text" class="form-control" name="postcode" value="20000" placeholder="Código Postal" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="country" class="form-label">Código País</label>
-                    <input type="text" class="form-control" name="country" value="PE" placeholder="Código País">
+                    <input type="text" class="form-control" name="country" value="PE" placeholder="Código País" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="phonenumber" class="form-label">Tel+</label>
-                    <input type="text" class="form-control" name="phonenumber" value="123-456-7890" placeholder="Teléfono">
+                    <input type="text" class="form-control" name="phonenumber" value="123-456-7890" placeholder="Teléfono" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="mb-3">
                     <label for="conrtasena_2" class="form-label">Contraseña</label>
-                    <input type="text" class="form-control" name="password2" value="" placeholder="Contraseña">
+                    <input type="password" class="form-control" name="password2" value="" placeholder="Contraseña" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mb-3">
+                <label for="conrtasena_2" class="form-label">Tipo de Documento</label>
+                    <select class="form-select" name="tipo_documento" required>
+                        <!-- <option selected>Seleccionar tipo de Documento</option> -->
+                        <option value="DNI">DNI</option>
+                        <option value="RUC">RUC</option>
+                        <option value="OTRO">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label for="num_documento" class="form-label">Número de Documento</label>
+                    <input type="text" class="form-control" name="num_documento" value="" placeholder="Número de documento" required>
                 </div>
             </div>
         </div>
